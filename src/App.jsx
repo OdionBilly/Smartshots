@@ -2,7 +2,8 @@ import './App.css'
 import { Forms } from './components/Forms'
 import { Card } from './components/Card'
 import { Navbar } from './components/Navbar'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+// import { motion } from 'framer-motion'
 
 
 const photos = [
@@ -18,10 +19,9 @@ function App() {
   const [inputs, setInputs] = useState({title:null, file:null, path:null})
   const [items, setItems] = useState(photos)
   const [isCollapsed, collapse] = useState(false)
+  const [count, setCount] = useState(0)
 
-// const AddToGallary =() => {
-//   setItems(['/src/assets/photos/nature6.jpg', ...items])
-// }
+
 
 const toggle = () =>  {collapse(!isCollapsed)}
 
@@ -39,22 +39,28 @@ const handleSubmit = (e) => {
   setItems([inputs.path,...items])
 }
 
+useEffect(() =>{
+  setCount(`you have ${items.length} images${items.length > 1 ? 's' : ''}`)
+},[items])
+
 console.log(inputs)
-
-
 
   return (
     <div className='container'> 
         <Navbar/>
       <div class='mt-3 text-center'>
             {/* <button className='btn btn-primary mx-3' onClick={AddToGallary}>Add</button> */}
-            <button className='btn btn-success float-end' onClick={toggle}>{isCollapsed ? 'Close' : '+Add'}</button>
+            <button 
+              className='btn btn-success float-end'
+              onClick={toggle}>{isCollapsed ? 'Close' : '+Add'}
+            </button>
 
             <Forms
              isVisible={isCollapsed}
              onChange={handleChange}
              onSubmit={handleSubmit}
              />
+            {count}
 
             <h1>Gallary</h1>
           <div className='row mt-5'>
