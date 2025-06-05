@@ -41,7 +41,7 @@ export const Forms = ({isVisible, onChange, onSubmit}) => {
           type="submit"
           className="btn btn-success float-end"
         >
-          Save changes
+          save changes
         </button>
       </form>
     </motion.div>
