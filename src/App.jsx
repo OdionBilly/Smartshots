@@ -3,6 +3,8 @@ import { Forms } from './components/Forms'
 import { Card } from './components/Card'
 import { Navbar } from './components/Navbar'
 import { useEffect, useState } from 'react'
+import { Footer } from './components/Footer'
+
 // import { motion } from 'framer-motion'
 
 
@@ -50,7 +52,7 @@ console.log(inputs)
   return (
     <div className='container'> 
         <Navbar/>
-      <div class='mt-3 text-center'>
+      <div class='pt-10 text-center'>
             {/* <button className='btn btn-primary mx-3' onClick={AddToGallary}>Add</button> */}
             <button 
               className='btn btn-success float-end'
@@ -65,11 +67,12 @@ console.log(inputs)
             {count}
 
             <h1>Gallary</h1>
-          <div className='row mt-5'>
+          <div className='flex flex-wrap bg-[red]'>
            {items.map((photo) => 
            <Card src={photo}/> ) }
           </div>
        </div>
+       <Footer/>
     </div>  
   )
 }
