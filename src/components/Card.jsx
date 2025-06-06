@@ -2,9 +2,9 @@ import React from 'react'
 
 export const Card = (prop) => {
   return (
-    <div className=''>
-         <div className='w-[500px] flex gap-10'>
-               <img src={prop.src} className="card-img-top" alt="image"/>
+    <div className='col mb-5'>
+         <div className="card" style={{width: '24rem'}}>
+               <img src={prop.src} class="card-img-top" alt="image"/>
         </div>
     </div>
   )
